@@ -10,3 +10,23 @@
 .navbar {
   background-color: #cc0000 !important;
 }
+
+.right-panel {
+  width: 40%;
+  margin-left: 15px;
+}
+
+.right-panel-top {
+  height: 30vh;
+  margin-bottom: 45px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.right-panel-bottom {
+  height: 50vh;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.left-panel {
+  width: 60%;
+}

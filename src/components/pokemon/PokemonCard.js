@@ -41,7 +41,7 @@ class PokemonCard extends Component {
 
   render() {
     return (
-      <div className='col-md-3 col-sm-6 mb-5'>
+      <div className='col-md-4 col-sm-6 mb-5'>
         <Card className="card rounded">
           <h5 className="card-header">{this.state.pokemonIndex}</h5>
           <Sprite
