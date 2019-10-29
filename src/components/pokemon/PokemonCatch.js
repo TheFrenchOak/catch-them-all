@@ -19,6 +19,7 @@ const PokemonCatch = () => {
     axios
       .get("https://pokeapi.co/api/v2/pokemon/" + pokeId())
       .then(res => {
+        console.log(res.data)
         setWildPokemon(res.data);
       })
   };
@@ -35,39 +36,52 @@ const PokemonCatch = () => {
     encounterWildPokemon();
   };
 
+  const removePokemon = (id) => {
+    setPokemonBag(state => state.filter(p => p.id !== id));
+  };
+
   return (
     <div>
       <div className="right-panel-top rounded bg-white">
-        <h2>{
-          wildPokemon.name ? 
-            wildPokemon.name
-            .toLowerCase()
-            .split('-')
-            .map(
-              word => word.charAt(0).toUpperCase() + word.substring(1)
-            )
-            .join(' ') : null
-          }</h2>
+        <h2>Wild pokemon</h2>
+        <div className='poke-name'>
+          <h4>{
+            wildPokemon.name ? 
+              wildPokemon.name
+              .toLowerCase()
+              .split('-')
+              .map(
+                word => word.charAt(0).toUpperCase() + word.substring(1)
+              )
+              .join(' ') : null
+          }</h4>
+        </div>
+        <div className='poke-hp'>
+          <p>Niv. {wildPokemon.base_experience}</p>
+        </div>       
         { wildPokemon.id ? 
           <img 
             className="card-img-top rounded mx-auto d-block mt-2"
             src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + wildPokemon.id + ".png"}
             alt={wildPokemon.name ? wildPokemon.name : null}
-            style={{ width: '5em', height: '5em' }}
+            style={{ width: '8em', height: '8em', position: 'absolute', top:'120px', right:'70px'}}
           />
         : null }
         <button className="catch-btn" onClick={() => catchPokemon(wildPokemon)}>Catch</button> 
       </div>   
-      <div className="right-panel-bottom rounded bg-white d-flex row m-0">
-        {pokemonBag.map(pokemon => (
-          <div className="col-md-6" key={pokemon.id}>
-            <img
-              src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemon.id + ".png"}
-              alt={pokemon.name}
-            />
-            <button className='remove-btn'>Remove</button>
-          </div>
-        ))}
+      <div className="right-panel-bottom rounded bg-white">
+        <div className="scrollable d-flex row">
+          {pokemonBag.map(pokemon => (
+            <div className="col-md-6" key={pokemon.id}>
+              <img
+                src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemon.id + ".png"}
+                alt={pokemon.name}
+              />
+              <h3>{pokemon.id}</h3>
+              <button className='remove-btn' onClick={() => removePokemon(pokemon.id)}>&times;</button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
