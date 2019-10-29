@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PokemonBag from '../pokemon/PokemonBag';
+import WildPokemon from '../pokemon/WildPokemon';
 
 
 const pokemonCatch = () => {
   return (
     <div>
-      <div className="right-panel-top rounded bg-white">
-
-      </div>
-      <div className="right-panel-bottom rounded bg-white">
-
-      </div>
+      <WildPokemon/>   
+      <PokemonBag/>
     </div>
   );
 };
