@@ -25,6 +25,7 @@
 .right-panel-bottom {
   height: 50vh;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
 .left-panel {
