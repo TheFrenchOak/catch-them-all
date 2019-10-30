@@ -1,13 +1,32 @@
-.App {
+/* General style */
+
+.bg-App {
   background-attachment: fixed;
   background-position: center;
   background-repeat: repeat;
-  background-color: #fafafa;
   min-height: 100vh;
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  filter: blur(4px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .navbar {
-  background-color: rgba(0, 0, 0, 0.0)
+  background-image: url("navbar.png");
+  margin-bottom: 50px;
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+}
+
+.navbar img {
+  width: 300px;
 }
 
 .right-panel {
@@ -15,24 +34,29 @@
   margin-left: 15px;
 }
 
-.right-panel-top {
-  height: 450px;
-  margin-bottom: 45px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  position: relative;
-  background-image: url("battleground.png");
+.pokebag{
+  width: 105%;
+  background-image: url(./components/pokemon/bag.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+  height: 750px;
+  position: relative;
 }
 
 .right-panel-bottom {
-  height: 650px;
+  width: 70%;
+  border-radius: 50px;
+  height: 450px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   padding-top: 15px;
+  position: absolute;
+  top: 277px;
+  left: 69px;
 }
 
 .scrollable {
-  height: 98%;
+  height: 97%;
+  width: 90%;
   overflow-y: auto;
   margin: auto;
 }
@@ -41,12 +65,36 @@
   width: 60%;
 }
 
+.hint {
+  display: flex;
+  background-color:rgba(0, 0, 0, 0.3);
+  width: 50%;
+  position: absolute;
+  left: 130px;
+  bottom: 30px;
+  padding-bottom: 10px;
+  padding-inline-start: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.hint p {
+  margin: 0;
+  width: 70%;
+  padding-top: 6px;
+  font-size: 14px;
+  color: white;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.05);
+}
+
 .poke-name {
   background-color:rgba(0, 0, 0, 0.3);
-  width: 45%;
+  width: 55%;
   position: absolute;
-  right: 170px;
-  top: 110px;
+  right: 110px;
+  top: 30px;
   padding-bottom: 10px;
   padding-inline-start: 10px;
   border-top-right-radius: 10px;
@@ -58,15 +106,15 @@
   font-style: italic;
   font-weight: bold;
   color: black;
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
 
 .poke-hp {
   position: absolute;
-  right: 172px;
-  top: 126px;
+  right: 112px;
+  top: 45px;
 }
 
 .poke-hp p {
@@ -74,7 +122,309 @@
   font-size: 18px;
   color: red;
   font-weight: bold;
-  -webkit-text-fill-color: red; /* Will override color (regardless of order) */
+  -webkit-text-fill-color: red;
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: black;
+}
+
+/* Gameboy style */
+
+#gameboy{
+  position: relative;
+  margin-bottom: 50px;
+  height: 750px;
+  width: 100%;
+  background: #EEE;
+  border-radius: 30px 30px 90px 30px;
+  overflow: hidden;
+  box-shadow: 5px 5px rgba(0,0,0,0.1);
+}
+#gameboy:before{
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  border-bottom: 3px solid #E0E0E0;
+  content: "";
+}
+#gameboy:after{
+  position: absolute;
+  width: 360px;
+  height: 30px;
+  left: 41px;
+  border-left: 3px solid #E0E0E0;
+  border-right: 3px solid #E0E0E0;
+  content: "";
+}
+#screen{
+  position: absolute;
+  width: 378px;
+  height: 315px;
+  left: 36px;
+  top: 50px;
+  background: #777;
+  border-radius: 15px 15px 60px 15px
+}
+#screen:before{
+  background-image: url("battleground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: 16px;
+  left: 46px;
+  box-shadow: inset 2px 2px rgba(0,0,0,0.1);
+  content: "";
+}
+#screen:after{
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  top: 135px;
+  left: 15px;
+  border-radius: 100%;
+  background: #B00;
+  content: "";
+}
+#dpad{
+  position: absolute;
+  width: 39px;
+  height: 120px;
+  top: 470px;
+  left: 70px;
+  background: #444;
+  border-radius: 3px;
+  z-index: 998;
+}
+#dpad:after{
+  position: absolute;
+  width: 120px;
+  height: 39px;
+  top: 39px;
+  left: -39px;
+  background: #444;
+  border-radius: 3px;
+  content: "";
+  z-index: 999;
+}
+#dpad:before{
+  position: absolute;
+  height: 39px;
+  width: 39px;
+  top: 39px;
+  border-radius: 100%;
+  background: #333;
+  content: "";
+  z-index: 1000;
+}
+#bevel{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 455px;
+  left: 16px;
+  background: #DFDFDF;
+  border-radius: 100%;
+}
+#bevel:before{
+  position: absolute;
+  width: 75px;
+  height: 150px;
+  left: 310px;
+  background: #DFDFDF;
+  border-radius: 36px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  content: "";
+}
+#bevel:after{
+  position: absolute;
+  height: 60px;
+  width: 9px;
+  top: 220px;
+  left: 300px;
+  border-radius: 6px;
+  background: #DDD;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(-45deg);
+  box-shadow: 21px 0px #DDD,
+              42px 0px #DDD,
+              63px 0px #DDD,
+              84px 0px #DDD,
+              106px 0px #DDD;
+  content: "";
+}
+#bt1{
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  top: 530px;
+  right: 81px;
+  border-radius: 100%;
+  background: #A93671;
+  box-shadow: 54px -54px #A93671;
+}
+#bt2{
+  position: absolute;
+  height: 75px;
+  width: 18px;
+  bottom: 75px;
+  left: 165px;
+  background: #999;
+  border-radius: 9px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  box-shadow: 51px -51px #999;
+}
+.btn-A{
+  position: absolute;
+  color:rgba(255,255,255,0.5);
+  font-weight: bold;
+  font-size: 32px;
+  top: 1px;
+  right: 16px;
+}
+.btn-A:hover{
+  cursor:pointer;
+}
+.btn-B{
+  position: absolute;
+  color:rgba(255,255,255,0.5);
+  font-weight: bold;
+  font-size: 32px;
+  top: -52px;
+  right: -38px;
+}
+
+/* Gameboy cartdridge card style */
+
+* { box-sizing: border-box }
+.cartridge {
+  margin: 0.5em auto;
+  width: 250px;
+}
+.part {
+  background: #ccc;
+  width: 250px;
+  height: 10px;
+  position: relative;
+}
+.part_1 {
+  width: 235px;
+  border-radius: 5px 5px 0 0;
+}
+.part_2 {
+  height: 50px;
+}
+.stripe {
+  background: #aaa;
+  height: 5px;
+  top: 10px;
+  margin-bottom: 5px;
+}
+.logo {
+  width: 220px;
+  height: 50px;
+  margin: 0 auto -50px auto;
+  top: -45px;
+  border: 5px solid #ccc;
+  border-radius: 20px;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#aaaaaa), to(#cccccc));
+  background: -webkit-linear-gradient(#aaaaaa 0%, #cccccc 100%);
+  background: -moz-linear-gradient(#aaaaaa 0%, #cccccc 100%);
+  background: -o-linear-gradient(#aaaaaa 0%, #cccccc 100%);
+  background: linear-gradient(#aaaaaa 0%, #cccccc 100%);
+}
+.logo p {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  color: #aaa;
+  margin-top: 0.5em;
+}
+.logo p span {
+  text-transform: uppercase;
+  font-style: italic;
+}
+.large {
+  height: 40px;
+}
+.dark {
+  background: #B4B4B4;
+  height: 180px;
+  border-radius: 0 0 5px 5px;
+}
+.dark .part {
+  width: 235px;
+  margin: 0 auto;
+  height: 182px;
+}
+.image_bg {
+  width: 210px;
+  margin: 0 auto -180px auto;
+  top: -205px;
+  border-radius: 5px;
+}
+.image {
+  width: 200px !important;
+  height: 170px !important;
+  top: 5px;
+  border-radius: 5px;
+}
+.image p {
+  position: absolute;
+  top: 35px;
+  left: 13px;
+  font-size: 1.5em;
+  color: #ccc;
+  transform: rotate(-5deg);
+  opacity: 0.7;
+}
+.triangle { 
+  background: none;
+  width: 0; 
+  height: 0;
+  border-top: 20px solid #B4B4B4;
+  border-left: 15px solid transparent; 
+  border-right: 15px solid transparent; 
+  margin: 0 auto;
+  top: -21px;
+}
+
+.pokemon-logo {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  z-index: -2;
+}
+
+.nintendo-logo {
+  width: 25%;
+  position: absolute;
+  bottom: 7px;
+  left: 7px;
+  z-index: 2;
+}
+
+.cartridge-name {
+  display:block;
+  text-align: center;
+  color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgba(255, 230, 0, 0.2);
+}
+
+.cartridge-name h6{
+  z-index: 4;
+  font-size: 1.4em;
+  font-weight: bold;
+  line-height: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.4em;
+  margin-bottom: 0;
+}
+
+.img-pokemon{
+  z-index: -1;
 }

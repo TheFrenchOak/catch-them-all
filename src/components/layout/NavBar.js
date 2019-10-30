@@ -9,8 +9,8 @@ const Logo = styled.img`
 const NavBar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-md navbar-fixed-top">
-        <Logo src={logo} alt="Catch'Em All" className="navbar-brand align-item-center" />
+      <nav className="navbar">
+        <Logo src={logo} alt="Catch Them All" className="navbar-brand align-item-center" />
       </nav>
     </div>
   );

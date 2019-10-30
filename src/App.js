@@ -8,7 +8,8 @@ import backgroundImage from './pattern.png';
 
 function App() {
   return (
-    <div className="App" style={{background: `url(${backgroundImage})`}}>
+    <div className="App">
+      <div className="bg-App" style={{background: `url(${backgroundImage})`}}></div>
       <NavBar/>
       <div className="container">
         <Dashboard/>
