@@ -4,7 +4,7 @@ import './App.css';
 import NavBar from './components/layout/NavBar';
 import Dashboard from './components/layout/Dashboard';
 
-import backgroundImage from './pattern.png';
+import backgroundImage from './components/layout/pattern.png';
 
 function App() {
   return (
