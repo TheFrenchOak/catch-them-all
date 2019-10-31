@@ -19,7 +19,7 @@
 }
 
 .navbar {
-  background-image: url("navbar.png");
+  background-image: url("./components/layout/navbar.png");
   margin-bottom: 50px;
   background-repeat: no-repeat;
   background-size: 100% 80%;
@@ -165,7 +165,7 @@
   border-radius: 15px 15px 60px 15px
 }
 #screen:before{
-  background-image: url("battleground.png");
+  background-image: url("./components/pokemon/battleground.png");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
